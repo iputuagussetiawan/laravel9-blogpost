@@ -18,10 +18,10 @@
 
 <article>
     <h2>
-         {{ $post['title'] }}</a>    
+        {{ $post->title }}</a>     
     </h2>
-    <h3>{{ $post['author'] }}</h3>
-    <p> {{ $post['body'] }}</p>
+    <h3>{{ $post->author }}</h3>
+    <p> {{ $post->body }}</p>
 </article>
 <a href="/posts">Back To Posts</a>
 
