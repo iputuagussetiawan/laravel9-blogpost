@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,14 +36,14 @@ Route::get('/about', function () {
 
 Route::get('/posts', function () {
     return view('posts', [
-        "active" => "posts",
-        "title" => "Posts"
+        "title" => "Posts",
+        "posts" => Post::all()
     ]);
 });
 
 Route::get('/posts/{slug}', function ($slug) {
-    return view('single-post', [
-        "active" => "posts",
-        "title" => "Posts"
+    return view('post', [
+        "title" => "Single Posts",
+        "post" => Post::find($slug)
     ]);
 });
