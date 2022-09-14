@@ -4,14 +4,13 @@
   <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Posts</h4>
+            <h4 class="mb-sm-0">Posts Category : {{ $category }}</h4>
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">UI Elements</a></li>
                     <li class="breadcrumb-item active">Cards</li>
                 </ol>
             </div>
-
         </div>
     </div>
 </div>
@@ -25,9 +24,7 @@
             <img class="card-img-top img-fluid" src="{{ asset('backend/assets/images/small/img-1.jpg') }}" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title"> {{ $post['title'] }} </h4>
-                <p> By : <a href="#"> {{ $post->user->name }}</a></p>
-                <p>in : <a href="/categories/{{$post->category->slug}}">{{ $post->category->name }}</a></p>
-                <h3>{{ $post->author }}</h3>
+                <span class="badge rounded-pill bg-success float-end">{{ $post['author'] }}</span>
                 <p class="card-text">{{ $post['excerpt'] }}</p>
               
                 <a href="/posts/{{ $post['slug'] }}" class="btn btn-primary waves-effect waves-light">Read more..</a>
