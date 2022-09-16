@@ -18,25 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
-        User::create([
-            'name' => 'I putu krisna dharma wijaya',
-            'email' => 'iputukrisnadharmawijaya@gmail.com',
-            'password' => bcrypt('123456')
-        ]);
-
-        User::create([
-            'name' => 'Dewi',
-            'email' => 'dewi@gmail.com',
-            'password' => bcrypt('123456')
-        ]);
-
+        User::factory(5)->create();
 
         Category::create([
             'name' => 'Web Programming',
@@ -48,31 +30,53 @@ class DatabaseSeeder extends Seeder
             'slug' => 'personal'
         ]);
 
-        Post::create([
-            'title' => 'Judul Pertama',
-            'slug' => 'judul-pertama',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum, deserunt inventore labore quisquam,',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum, deserunt inventore labore quisquam,',
-            'category_id' => 1,
-            'user_id' => 1
-        ]);
+        Post::factory(20)->create();
 
-        Post::create([
-            'title' => 'Judul Kedua',
-            'slug' => 'judul-kedua',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum, deserunt inventore labore quisquam,',
-            'body' => 'Lorem',
-            'category_id' => 1,
-            'user_id' => 2
-        ]);
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
 
-        Post::create([
-            'title' => 'Judul Ketiga',
-            'slug' => 'judul-ketiga',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum, deserunt inventore labore quisquam,',
-            'body' => 'Lorem',
-            'category_id' => 2,
-            'user_id' => 1
-        ]);
+        // User::create([
+        //     'name' => 'I putu krisna dharma wijaya',
+        //     'email' => 'iputukrisnadharmawijaya@gmail.com',
+        //     'password' => bcrypt('123456')
+        // ]);
+
+        // User::create([
+        //     'name' => 'Dewi',
+        //     'email' => 'dewi@gmail.com',
+        //     'password' => bcrypt('123456')
+        // ]);
+
+
+
+
+        // Post::create([
+        //     'title' => 'Judul Pertama',
+        //     'slug' => 'judul-pertama',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum, deserunt inventore labore quisquam,',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum, deserunt inventore labore quisquam,',
+        //     'category_id' => 1,
+        //     'user_id' => 1
+        // ]);
+
+        // Post::create([
+        //     'title' => 'Judul Kedua',
+        //     'slug' => 'judul-kedua',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum, deserunt inventore labore quisquam,',
+        //     'body' => 'Lorem',
+        //     'category_id' => 1,
+        //     'user_id' => 2
+        // ]);
+
+        // Post::create([
+        //     'title' => 'Judul Ketiga',
+        //     'slug' => 'judul-ketiga',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum, deserunt inventore labore quisquam,',
+        //     'body' => 'Lorem',
+        //     'category_id' => 2,
+        //     'user_id' => 1
+        // ]);
     }
 }

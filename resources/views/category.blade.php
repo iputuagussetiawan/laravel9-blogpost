@@ -24,7 +24,7 @@
             <img class="card-img-top img-fluid" src="{{ asset('backend/assets/images/small/img-1.jpg') }}" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title"> {{ $post['title'] }} </h4>
-                <span class="badge rounded-pill bg-success float-end">{{ $post['author'] }}</span>
+                <span class="badge rounded-pill bg-success float-end">{{ $post->author->name }}</span>
                 <p class="card-text">{{ $post['excerpt'] }}</p>
               
                 <a href="/posts/{{ $post['slug'] }}" class="btn btn-primary waves-effect waves-light">Read more..</a>

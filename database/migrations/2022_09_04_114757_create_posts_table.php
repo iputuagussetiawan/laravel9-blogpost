@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('excerpt');
-            $table->string('body');
+            $table->text('body');
             $table->timestamp('publish_at')->nullable();
             $table->timestamps();
         });

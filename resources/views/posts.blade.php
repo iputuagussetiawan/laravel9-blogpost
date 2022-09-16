@@ -25,11 +25,9 @@
             <img class="card-img-top img-fluid" src="{{ asset('backend/assets/images/small/img-1.jpg') }}" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title"> {{ $post['title'] }} </h4>
-                <p> By : <a href="#"> {{ $post->user->name }}</a></p>
+                <p> By : <a href="/authors/{{ $post->author->username }}"> {{ $post->author->name }}</a></p>
                 <p>in : <a href="/categories/{{$post->category->slug}}">{{ $post->category->name }}</a></p>
-                <h3>{{ $post->author }}</h3>
                 <p class="card-text">{{ $post['excerpt'] }}</p>
-              
                 <a href="/posts/{{ $post['slug'] }}" class="btn btn-primary waves-effect waves-light">Read more..</a>
             </div>
         </div>
