@@ -26,6 +26,7 @@
                 <h4 class="card-title"> {{ $post['title'] }} </h4>
                 <p> By : <a href="/authors/{{ $post->author->username }}"> {{ $post->author->name }}</a></p>
                 <p>in : <a href="/categories/{{$post->category->slug}}">{{ $post->category->name }}</a></p>
+                <p>in : {{$post->created_at->diffForHumans()  }}</p
                 <p class="card-text">{{ $post['excerpt'] }}</p>
                 <a href="/posts/{{ $post['slug'] }}" class="btn btn-primary waves-effect waves-light">Read more..</a>
             </div>
