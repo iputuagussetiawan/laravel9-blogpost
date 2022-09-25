@@ -19,7 +19,7 @@
     <h2>
         {{ $post->title }}</a>     
     </h2>
-    <p>in : <a href="/categories/{{$post->category->slug}}">{{ $post->category->name }}</a></p>
+    <p>in : <a href="/posts?category={{$post->category->slug}}">{{ $post->category->name }}</a></p>
     <p> By : <a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a></p>
     {!! $post->body !!}
 </article>

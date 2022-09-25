@@ -19,7 +19,7 @@
     @foreach ($categories as $category )
     <ul>
         <li>
-            <a href="/categories/{{ $category->slug }}">  {{ $category->name }}</a>    
+            <a href="posts/?category={{ $category->slug }}">  {{ $category->name }}</a>    
         </li>
     </ul>
     @endforeach
