@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +19,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(5)->create();
+        //User::factory(5)->create();
+        // $default_user_value = [
+        //     'email_verified_at' => now(),
+        //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        //     'remember_token' => Str::random(10),
+
+        // ];
+
+        // $staff = User::create(array_merge([
+        //     'email' => 'staff@gmail.com',
+        //     'name' => 'staff',
+        // ], $default_user_value));
+
 
         Category::create([
             'name' => 'Web Programming',
@@ -31,6 +44,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Post::factory(20)->create();
+
+        $this->call([
+            UserRolePermissionSeeder::class,
+        ]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
