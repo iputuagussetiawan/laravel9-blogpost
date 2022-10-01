@@ -14,6 +14,17 @@
         </div>
     </div>
 </div>
+
+<div class="row justify-center mb-3">
+    <div class="col-md-5">
+        <form action="/posts">
+            <div class="input-group mb-3">
+                <input name="search" id="search" type="search" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
 <!-- end page title -->
 
 <div class="row">
