@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Dashboard | {{ $title }}</title>
+        <title>Dashboard </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
@@ -23,6 +23,10 @@
         <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+
+        {{-- css for spesific page --}}
+        @stack('css');
+        {{-- end css spesific page --}}
 
     </head>
 
@@ -80,6 +84,11 @@
 
         <!-- App js -->
         <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+
+
+         {{-- js for spesific page --}}
+         @stack('js');
+         {{-- end js spesific page --}}
     </body>
 
 </html>

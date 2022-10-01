@@ -21,6 +21,26 @@
                 <li class="menu-title">Menu</li>
 
                 <li>
+                    <a href="index.html" class="waves-effect">
+                        <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end">3</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                @can('read configurasi')
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i>
+                        <span>Configurasi</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        @can('read role')    
+                        <li><a href="{{ route('roles.index') }}">Roles</a></li>
+                        @endcan
+                    </ul>
+                </li>
+                @endcan
+                <li>
                     <a href="/" class="waves-effect">
                         <i class="ri-dashboard-line"></i>
                         <span>Home</span>
@@ -41,12 +61,7 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="index.html" class="waves-effect">
-                        <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end">3</span>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
+                                  
 
                 <li>
                     <a href="calendar.html" class=" waves-effect">
