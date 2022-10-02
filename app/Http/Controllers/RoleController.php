@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\RoleDataTable;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Html\Column;
 
 class RoleController extends Controller
 {
@@ -21,15 +25,30 @@ class RoleController extends Controller
         // }
         // abort(403);
 
-        $this->authorize('read role');
+        //$this->authorize('read role');
         // if (!Gate::allows('read role')) {
         //     abort(403, 'unauthorized');
         // }
-        // return view('configuration.roles', [
-        //     "title" => "Roles"
-        // ]);
 
-        return $dataTable->render('configuration.roles');
+        //$data['users'] = User::with(relations: 'role')->get();
+        return view('configuration.roles');
+
+
+        // $query = User::orderBy('name', 'DESC');
+        // return datatables::of($query)
+        //     ->addIndexColumn()
+        //     ->addColumn('opsi', function ($data) {
+        //         return '<span>Edit</span> | <span>Delete</span>';
+        //     })
+        //     ->rawColumns(['opsi'])
+        //     ->make(true);
+
+        //return $dataTable->render('configuration.roles');
+
+        //$data['users']=User::all()
+
+
+        //return $dataTable->render('configuration.roles');
     }
 
     /**
@@ -99,5 +118,23 @@ class RoleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function table()
+    {
+
+        $query = DB::table('users');
+
+        //return DataTables::of($query)->toJson();
+
+
+        $query = User::orderBy('name', 'DESC');
+        return datatables::of($query)
+            ->addIndexColumn()
+            ->addColumn('opsi', function ($data) {
+                return '<span>Edit</span> | <span>Delete</span>';
+            })
+            ->rawColumns(['opsi'])
+            ->make(true);
     }
 }
