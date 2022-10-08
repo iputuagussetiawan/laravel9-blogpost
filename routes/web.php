@@ -29,7 +29,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/posts',  [PostController::class, 'index']);
+Route::get('/posts/create',  [PostController::class, 'create']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
+Route::get('/posts/edit',  [PostController::class, 'edit']);
 
 Route::get('roleTabel/', [RoleController::class, 'table'])->name('roleTabel');
 
