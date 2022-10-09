@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
-class DashboardPostController extends Controller
+class BackendPostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +17,14 @@ class DashboardPostController extends Controller
     public function index()
     {
         //
+
+        return view(
+            'backend.posts.index',
+            [
+                "title" => "All Posts",
+                "posts" => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(8)->withQueryString()
+            ]
+        );
     }
 
     /**
@@ -25,6 +35,13 @@ class DashboardPostController extends Controller
     public function create()
     {
         //
+        return view(
+            'backend.posts.create',
+            [
+                "title" => "Create Posts",
+                "categories" => Category::all()
+            ]
+        );
     }
 
     /**
@@ -36,6 +53,7 @@ class DashboardPostController extends Controller
     public function store(Request $request)
     {
         //
+        return 'ini halaman store';
     }
 
     /**
@@ -47,6 +65,13 @@ class DashboardPostController extends Controller
     public function show(Post $post)
     {
         //
+        return view(
+            'backend.posts.show',
+            [
+                "title" => "Detail Posts",
+                "post" => $post
+            ]
+        );
     }
 
     /**
@@ -58,6 +83,7 @@ class DashboardPostController extends Controller
     public function edit(Post $post)
     {
         //
+        return 'ini halaman edit post';
     }
 
     /**
@@ -70,6 +96,7 @@ class DashboardPostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        return 'ini halaman update post ';
     }
 
     /**
@@ -81,5 +108,11 @@ class DashboardPostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function checkslug(Request $request)
+    {
+        $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

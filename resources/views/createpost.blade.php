@@ -18,7 +18,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="" method="post" action="/posts/create">
+                    <form action="" method="post" action="backend/posts">
                         @csrf
                         <div class="row mb-3">
                             <label for="title" class="col-sm-2 col-form-label">Title</label>
@@ -34,7 +34,6 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Create Post</button>
                     </form>
-                  
                 </div>
             </div>
         </div> <!-- end col -->
@@ -46,7 +45,7 @@
      
         title.addEventListener('change', function () {  
             console.log('tests');
-            fetch('/posts/checkSlug?title='+ title.value)
+            fetch('/backend/posts/checkSlug?title='+ title.value)
             .then (response => response.json())
             .then (data => slug.value=data.slug)
         });  

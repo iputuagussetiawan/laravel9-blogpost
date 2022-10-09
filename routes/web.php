@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BackendPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Models\Category;
@@ -78,6 +79,10 @@ Route::get('/authors/{author:username}', function (User $author) {
         'posts' => $author->posts->load('category', 'author')
     ]);
 });
+
+
+Route::get('backend/posts/checkslug', [BackendPostController::class, 'checkSlug']);
+Route::resource('backend/posts', BackendPostController::class);
 
 
 
